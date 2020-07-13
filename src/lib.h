@@ -5,6 +5,11 @@ int return_zero(){
 }
 
 template <typename T>
-T mean(std::initializer_list<T> v){
+T mean(std::vector<T> const & v){
   return std::accumulate(v.begin(), v.end(), 0) / v.size();
+}
+
+template <typename T>
+int median (std::initializer_list<T> v) {
+  return 0;
 }
