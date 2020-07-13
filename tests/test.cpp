@@ -8,7 +8,7 @@ TEST(ZeroTest, Zero) {
 }
 
 TEST(MeanTest, Zero) {
-  EXPECT_EQ(0, mean({}));
+  EXPECT_EQ(0, mean({0}));
   EXPECT_EQ(1, mean({1}));
 }
 
