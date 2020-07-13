@@ -5,5 +5,5 @@ int return_zero(){
 }
 
 int mean(std::vector<int> v){
-  return std::accumulate(v.begin(), v.end(), 0);
+  return std::accumulate(v.begin(), v.end(), 0) / v.size();
 }
