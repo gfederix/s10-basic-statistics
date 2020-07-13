@@ -12,7 +12,9 @@ TEST(MeanTest, Zero) {
   EXPECT_EQ(1, mean({1, 1, 1, 1}));
   EXPECT_EQ(2, mean({1, 4}));
   EXPECT_EQ(2., mean({1., 4.}));
-
 }
+  TEST(MeanFloatTest, Zero) {
+    EXPECT_EQ(2., mean({1., 4.}));
+  }
 
 }
