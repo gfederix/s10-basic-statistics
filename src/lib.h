@@ -25,13 +25,13 @@ double median (std::vector<T> v) {
 template <typename T>
 int moda (std::vector<T> v) {
   std::unordered_map<T, int> m;
-  for (auto x: v){
+  for (auto const & x: v){
     m.try_emplace(x, 0);
     m[x]++;
   }
   std::vector<T>  ret;
   int count = m[0];
-  for (auto [v, c]: m){
+  for (auto const & [v, c]: m){
     if (count < c){
       ret.clear();
       count = c;
