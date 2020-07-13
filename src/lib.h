@@ -1,5 +1,6 @@
 #include <vector>
 #include <numeric>
+#include <unordered_set>
 int return_zero(){
   return 0;
 }
@@ -18,4 +19,27 @@ double median (std::vector<T> v) {
   }
   int second_pos = s / 2;
   return (v[second_pos - 1] + v[second_pos]) / 2.;
+}
+
+
+template <typename T>
+int moda (std::vector<T> v) {
+  std::unordered_map<T, int> m;
+  for (auto x: v){
+    m.try_emplace(x, 0);
+    m[x]++;
+  }
+  std::vector<T>  ret;
+  int count = m[0];
+  for (auto [v, c]: m){
+    if (count < c){
+      ret.clear();
+      count = c;
+    }
+    if (count == c){
+      ret.push_back(v);
+    }
+  }
+  sort(ret.begin(), ret.end());
+  return ret[0];
 }
