@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <istream>
 #include <iterator>
+#include <cmath>
 
 int return_zero(){
   return 0;
@@ -46,12 +47,23 @@ int moda (std::vector<T> v) {
   sort(ret.begin(), ret.end());
   return ret[0];
 }
+
+template <typename T>
+double sd(std::vector<T> v) {
+  double mu = mean(v);
+  double var = 0;
+  for (auto x :v) {
+    var += std::pow(x - mu, 2);
+  }
+  return  std::sqrt(var / static_cast<double>(v.size()));
+}
+
 class VecInput {
+ private:
+  std::istream_iterator<int> eos;
  public:
   int size;
   std::vector<int> first;
- private:
-  std::istream_iterator<int> eos;
   VecInput(std::istream& is){
     is >> size;
     std::copy_n(std::istream_iterator<int>{is}, size, std::back_inserter(first));

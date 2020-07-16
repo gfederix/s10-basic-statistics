@@ -34,6 +34,12 @@ namespace testing{
     EXPECT_EQ(2, moda(std::vector {1, 3, 3, 2, 2}));
   }
 
+  TEST(SdTest, Zero) {
+    EXPECT_EQ(0, sd(std::vector {0}));
+    EXPECT_EQ(0, sd(std::vector {2, 2, 2}));
+    EXPECT_LE(sd(std::vector {10, 40, 30, 50, 20}) - 14.1, .05);
+  }
+
   TEST(VecInputTest, NonZeroVectors) {
     std::istringstream is ("4\n200 3 4 5");
     DoubleVecInput input(is);
