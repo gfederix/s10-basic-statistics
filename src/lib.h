@@ -46,6 +46,18 @@ int moda (std::vector<T> v) {
   sort(ret.begin(), ret.end());
   return ret[0];
 }
+class VecInput {
+ public:
+  int size;
+  std::vector<int> first;
+ private:
+  std::istream_iterator<int> eos;
+  VecInput(std::istream& is){
+    is >> size;
+    std::copy_n(std::istream_iterator<int>{is}, size, std::back_inserter(first));
+    };
+};
+
 
 class DoubleVecInput {
  public:

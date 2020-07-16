@@ -34,16 +34,15 @@ namespace testing{
     EXPECT_EQ(2, moda(std::vector {1, 3, 3, 2, 2}));
   }
 
-  TEST(InputTest, ZeroVectors) {
-    std::istringstream is ("0\n\n\n");
+  TEST(VecInputTest, NonZeroVectors) {
+    std::istringstream is ("4\n200 3 4 5");
     DoubleVecInput input(is);
-    EXPECT_EQ(input.size,0);
-    EXPECT_EQ(input.first, std::vector<int>{});
-    EXPECT_EQ(input.second, std::vector<int>{});
-
+    EXPECT_EQ(input.size, 4);
+    EXPECT_EQ(input.first, (std::vector<int>{200, 3, 4, 5}));
   }
-  TEST(InputTest, NonZeroVectors) {
-    std::istringstream is ("4 200 3 4 5\n6 7 8 9\n");
+
+  TEST(DoubleVecInputTest, NonZeroVectors) {
+    std::istringstream is ("4\n 200 3 4 5\n6 7 8 9\n");
     DoubleVecInput input(is);
     EXPECT_EQ(input.size, 4);
     EXPECT_EQ(input.first, (std::vector<int>{200, 3, 4, 5}));
